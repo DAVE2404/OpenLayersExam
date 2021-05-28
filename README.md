@@ -10,3 +10,9 @@ https://dave2404.github.io/OpenLayersExam/exe00.html
 
 01. 버튼 줌 
 https://dave2404.github.io/OpenLayersExam/exe01.html
+
+02. gif들어간 맵
+https://dave2404.github.io/OpenLayersExam/exe02.html
+
+03. bing맵
+https://dave2404.github.io/OpenLayersExam/exe03.html
