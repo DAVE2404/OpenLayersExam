@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Animated GIF</title>
+    <!-- Pointer events polyfill for old browsers, see https://caniuse.com/#feat=pointer -->
+    <script src="https://unpkg.com/elm-pep"></script>
+    <!-- The line below is only needed for old environments like Internet Explorer and Android 4.x -->
+    <script src="https://cdn.polyfill.io/v3/polyfill.min.js?features=fetch,requestAnimationFrame,Element.prototype.classList,URL,TextDecoder"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.5.0/css/ol.css" type="text/css">
+    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.5.0/build/ol.js"></script>
+    <script src="https://unpkg.com/gifler@0.1.0/gifler.min.js"></script>
+    <style>
+      .map {
+        width: 100%;
+        height: 600px;;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map" class="map"></div>
+    <!-- <script src="js/main02.js"></script> -->
+    <script>
+        var iconFeature = new ol.Feature({
+  geometry: new ol.geom.Point([0, 0]),
+});
+
+var vectorSource = new ol.source.Vector({
+  features: [iconFeature],
+});
+
+var vectorLayer = new ol.layer.Vector({
+  source: vectorSource,
+});
+
+var rasterLayer = new ol.layer.Tile({
+  source: new ol.source.Stamen({
+    layer: 'toner',
+  }),
+});
+
+var map = new ol.Map({
+  layers: [rasterLayer, vectorLayer],
+  target: document.getElementById('map'),
+  view: new ol.View({
+    center: [0, 0],
+    zoom: 2,
+  }),
+});
+
+var gifUrl = 'data/globe.gif';
+var gif = gifler(gifUrl);
+gif.frames(
+  document.createElement('canvas'),
+  function (ctx, frame) {
+    if (!iconFeature.getStyle()) {
+      iconFeature.setStyle(
+        new ol.Style({
+          image: new ol.Icon({
+            img: ctx.canvas,
+            imgSize: [frame.width, frame.height],
+            opacity: 0.8,
+          }),
+        })
+      );
+    }
+    ctx.clearRect(0, 0, frame.width, frame.height);
+    ctx.drawImage(frame.buffer, frame.x, frame.y);
+    map.render();
+  },
+  true
+);
+
+// change mouse cursor when over icon
+map.on('pointermove', function (e) {
+  var pixel = map.getEventPixel(e.originalEvent);
+  var hit = map.hasFeatureAtPixel(pixel);
+  map.getTarget().style.cursor = hit ? 'pointer' : '';
+});
+    </script>
+  </body>
+</html>
