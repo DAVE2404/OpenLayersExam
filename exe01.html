@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Accessible Map</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.5.0/css/ol.css" type="text/css">
+    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.5.0/build/ol.js"></script>
+    <!-- Pointer events polyfill for old browsers, see https://caniuse.com/#feat=pointer -->
+    <script src="https://unpkg.com/elm-pep"></script>
+    <style>
+      .map {
+        width: 50%;
+        height:400px;
+      }
+      a.skiplink {
+        position: absolute;
+        clip: rect(1px, 1px, 1px, 1px);
+        padding: 0;
+        border: 0;
+        height: 1px;
+        width: 1px;
+        overflow: hidden;
+      }
+      a.skiplink:focus {
+        clip: auto;
+        height: auto;
+        width: auto;
+        background-color: #fff;
+        padding: 0.3em;
+      }
+      #map:focus {
+        outline: #4A74A8 solid 0.15em;
+      }
+      button{
+        width: 80px;
+        height: 80px;
+        font-size: 400%;
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skiplink" href="#map">Go to map</a>
+    <div id="map" class="map" tabindex="0"></div>
+    <div>
+    <button id="zoom-out">-</button>
+    <button id="zoom-in">+</button>
+    </div>
+    <script type="module" src="js/main.js"></script>
+    <!-- <script>
+      var map = new ol.Map({
+        target: 'map',
+        layers: [
+          new ol.layer.Tile({
+            source: new ol.source.OSM()
+          })
+        ],
+        view: new ol.View({
+          center: ol.proj.fromLonLat([127, 37.5]),
+          zoom: 10
+        })
+      });
+      document.getElementById('zoom-out').onclick = function () {
+        var view = map.getView();
+        var zoom = view.getZoom();
+        view.setZoom(zoom - 1);
+      };
+
+      document.getElementById('zoom-in').onclick = function () {
+        var view = map.getView();
+        var zoom = view.getZoom();
+        view.setZoom(zoom + 1);
+      };
+    </script> -->
+
+  </body>
+</html>
