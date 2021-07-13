@@ -19,3 +19,6 @@ https://dave2404.github.io/OpenLayersExam/exe03.html       ---> JS에 BingMap ke
 
 04. overview map 
 https://dave2404.github.io/OpenLayersExam/exe04.html       ---> JS에 rainforest key를 추가해야 사용가능
+
+05.lotto
+https://dave2404.github.io/OpenLayersExam/lotto.html
