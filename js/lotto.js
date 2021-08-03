@@ -1,8 +1,12 @@
+$( document ).ready(function() {
+    $('#result ul li a').hide();
+});
 function start(){
     var i = 1;
     var timer = setInterval(() => {
         if(i==7){
             clearInterval(timer);
+            sort();
         }else{
             var divNm;
             switch(i){
@@ -17,6 +21,7 @@ function start(){
             i++;
         }
     }, 2000);
+
 }
 function randomNum(i,divNm){
     let testinterval =setInterval(() => {
@@ -28,12 +33,11 @@ function randomNum(i,divNm){
     setTimeout(() => {
         doubleCheck(i,divNm);
         clearTimeout(testinterval)
-    }, 2000);
+    }, 1800);
 }
 function doubleCheck(i,divNm){
     let selectAtag = document.getElementsByTagName("a");
     let checkAtag = selectAtag.item(i-1).innerHTML;
-    console.log(checkAtag);
     for(let l = 0; l < i-1 ; l++){
         let fnum = (Math.random()*45)+1;
         let snum = Math.floor(fnum);
@@ -54,4 +58,26 @@ function doubleCheck(i,divNm){
         //     }    
         // }
     }
+}
+
+//배열로 만들어서  sort
+function sort(){
+    var array = [];
+    let selectAtag = document.getElementsByTagName("a");
+    for(let l = 0;l < 6;l++){
+        array.push(selectAtag.item(l).innerHTML);
+    }
+    array.sort(compareNumbers);
+    for(let count =0 ; count < 6; count++){
+        let result = document.querySelector("ul").getElementsByTagName("li");
+        let reresult = result.item(count).getElementsByTagName("a");
+        for(let v = 0;v<reresult.length;v++){
+            reresult.item(v).innerHTML= array[v];
+        }
+        if(count<4) start();
+    }
+    $('#result ul li a').show();
+}
+function compareNumbers(a,b){
+    return a - b;
 }

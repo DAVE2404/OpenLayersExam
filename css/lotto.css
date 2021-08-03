@@ -1,6 +1,7 @@
 .main{
     background: #747c8a;
-    min-height: 700px;
+    height: 100%;
+    width: 100%;
 }
 .main-contents{
     background: #c9c157;
@@ -15,7 +16,7 @@
 .top-contents, .body-contents, .bottom-contents{
     width: 100%;
     height: 100%;
-    font-size: 40px;
+   
     text-align: center;
 }
 .body-contents{
@@ -23,6 +24,7 @@
     margin: auto;
     width: max-content;
     height: 150px;
+    font-size: 40px;
 }
 .mid-contents{
     background: rgb(50, 50, 206);
@@ -48,15 +50,26 @@
     width: 100px;
     height: 100px;
 }
-element.style {
-    background: slategray;
-}
 .logo{
     width: 300px;
     height: 200px;
 }
-
-
-
-
-
+.bottom-contents{
+    width: max-content;
+    height: auto;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 300px 300px 300px;
+}
+.bottom-temp-box{
+    height: max-content;
+}
+ul > li {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+ul > li > a{
+    background: white;
+    border-radius: 20px;
+    padding: 5px 5px 5px 5px;
+}
