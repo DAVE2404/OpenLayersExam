@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<style>
+    body{
+        height: 100%;
+        width: 100%
+    }
+        #map {
+        position: relative;
+        height: 100vh;
+        width: 100vw;
+        z-index: 1;
+        }
+        .userInfo-detail {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            z-index: 3;
+            top: -38px;
+        }
+        .offcanvas-header {
+            background-color: #285b9e;
+            padding: 0.5rem 0.5rem;
+            justify-content: center;
+        }
+        .offcanvas-title {
+            color: white;
+
+        }
+        .btn-history {
+            background-color: #285b9e;
+            color: white;
+        }
+</style>
+<script>
+    let map;
+    function initMap() {
+    map = new google.maps.Map(document.getElementById("map"), {
+        center: { lat: 31.0996, lng: 121.439 },
+        zoom: 10,
+    });
+    }
+
+</script>   
+<body>
+    <div id="map"></div>
+    <div class="container-fluid userInfo-detail">
+        <img src="" alt="">
+        <button class="btn btn-history" type="button" data-bs-toggle="offcanvas"  data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">
+            상담 및 문자 이력 △</button>
+        <!-- <button class="userinfo-button" type="button" data-bs-toggle="offcanvas"  data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom"><img src="image/jw.png" alt=""></button> -->
+        <div class="offcanvas offcanvas-bottom" data-bs-scroll="true" data-bs-backdrop="false"  tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel" >
+            <div class="offcanvas-header">
+                <p class="offcanvas-title" id="offcanvasBottomLabel"  data-bs-dismiss="offcanvas">상담 및 문자 이력 최소화 ▽</p>
+                <!-- <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button> -->
+            </div>
+          <div class="offcanvas-body small">
+            최근상담이력/안전문자 영역
+          </div>
+        </div>
+    </div>
+</body>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSuNwevkVxTXoX33PztIfTAwPs6JUOsV8&callback=initMap&libraries=&v=weekly" async></script>
+</html>

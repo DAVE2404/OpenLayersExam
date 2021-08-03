@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title
+</head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<style>
+    body {
+        background-color: #285b9e;
+    }
+    .menuForm {
+        display: flex;
+        flex-direction: row;
+        flex: 1;
+        height: 80%;
+    }
+    .navbar.left-menu {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .navbar.right-menu {
+        flex: none;
+        width: 400px;
+    }
+    .searchCH {
+        width: inherit;
+        margin-top: 10px;
+    }
+    .loc {
+        width: 100%;
+    }
+    .searchCH , .loc {
+        padding: 5px 5px 5px 5px;
+    }
+    .searchForm {
+        width: 100%;
+    }
+    .time {
+        width: 100%;
+        height: 60%;
+        display: flex;
+        flex-direction: row;
+    }
+    .nav-item > a {
+        color: rgb(255, 255, 255);
+    }
+    li:hover ,
+    li:focus  {
+        background-color: #3482e9;
+        color: black;
+    }
+    .table.realTime {
+        text-align: center;
+        margin-top: -8px;
+    }
+    .table.realTime > tbody > tr > *{
+        border: 4px solid #285b9e;
+        background-color: white;
+    }
+    .menuBar {
+        margin-top: -6px;
+        width: 100%;
+        height: auto;
+    }
+    .collapse.navbar-collapse {
+        display: flex;
+        flex-direction: row;
+        flex: 1;
+    }
+    .nav_left-menu {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .nav_right-menu {
+        flex: none;
+        width: 400px;
+    }
+    .navbar-nav > li.main-menu {
+        border: 1px solid white;
+        width: -webkit-fill-available;
+        text-align: center;
+    } 
+    .navbar-nav > li.tab-menu {
+        border: 1px solid white;
+        width: -webkit-fill-available;
+        text-align: center;
+    } 
+    .navbar-nav > li > a {
+        text-decoration: none;
+    } 
+    .btn-search {
+        background-color: white;
+    }
+    .btn-search:hover,
+    .btn-search:focus {
+        background-color: #3482e9;
+    }
+</style>
+<body>
+<div class="container-fluid menuForm">
+    <div class="navbar left-menu">
+        <div class="searchCH">
+            <form class="row searchForm">
+                <div class=" col-lg-2">
+                    <input type="text" id="channel" value="채널" class="form-control" disabled>
+                </div>
+                <div class=" col-lg-2">
+                    <select id="continent" class="form-control">
+                        <option value="임시1">ASIA</option>
+                        <option value="임시2">AFRICA</option>
+                        <option value="임시3">AMERICA</option>
+                        <option value="임시4">EUROPE</option>
+                        <option value="임시4">OCEANIA</option>
+                    </select>
+                </div>
+                <div class=" col-lg-2">
+                    <input type="text" class="form-control" id="nation" value="국가" disabled>
+                </div>
+                <div class=" col-lg-2">
+                    <input type="text" class="form-control" id="city" value="도시" disabled>
+                </div>
+                <div class=" col-lg-2">
+                    <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                </div>
+                <div class=" col-lg-2">
+                    <button class="form-control btn btn-search" type="submit">Search</button>
+                </div>
+            </form>
+        </div>
+        <div class="loc">
+            <div class="row searchForm">
+                <div class=" col-lg-2">
+                    <input type="text" class="form-control" id="lat" value="위도" disabled>
+                </div>
+                <div class=" col-lg-2">
+                    <input type="text" class="form-control" id="lon" value="경도" disabled>
+                </div>
+                <div class=" col-lg-8">
+                    <input type="text" class="form-control" id="address" value="주소" disabled>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <div class="navbar right-menu">
+        <div class="time">
+            <table class="table realTime">
+                <tbody>
+                    <tr>
+                        <th>한국시간</th>
+                        <th>현지시간</th>
+                    </tr>
+                    <tr>
+                        <td>13:15</td>
+                        <td>22:15</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="menuBar">
+    <nav class="navbar navbar-expand-xl navbar-light background-color">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="nav_left-menu">
+                    <ul class="navbar-nav main-menu">
+                        <li class="nav-item main-menu active" ><a href="">위난지도</a></li>
+                        <li class="nav-item main-menu"><a href="">사건사고지도</a></li>
+                        <li class="nav-item main-menu"><a href="">여행추이</a></li>
+                        <li class="nav-item main-menu"><a href="">코로나추이</a></li>
+                        <li class="nav-item main-menu"><a href="">상담추이</a></li>
+                        <li class="nav-item main-menu"><a href="">코로나/입국요건</a></li>
+                        <li class="nav-item main-menu"><a href="">안전공지</a></li>
+                        <li class="nav-item main-menu"><a href="">공관FAQ</a></li>
+                        <li class="nav-item main-menu"><a href="">응대요령</a></li>
+                    </ul>
+                </div>
+                <div class="nav_right-menu">
+                    <ul class="navbar-nav tab-menu">
+                        <li class="nav-item tab-menu"><a href="">관할공관</a></li>
+                        <li class="nav-item tab-menu"><a href="">사고자</a></li>
+                    </ul>
+                </div>
+            </div>
+    </nav>
+</div>
+</body>
+</html>
